@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var animatedSprite: AnimatedSprite2D
+@export var handSprite: Sprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -9,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 
 	move()
-	
+	moveHand()
 	move_and_slide()
 
 func move():
@@ -35,3 +36,12 @@ func move():
 	else:
 		animatedSprite.play("Idle")
 		animatedSprite.flip_h = false
+
+func moveHand():
+	handSprite.look_at(get_global_mouse_position())
+	if position.x > get_global_mouse_position().x:
+		handSprite.position.x = -15
+		handSprite.flip_v = true
+	else:
+		handSprite.position.x = 15
+		handSprite.flip_v = false

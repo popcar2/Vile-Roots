@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://vdsgsaawyakx"]
+[gd_scene load_steps=24 format=3 uid="uid://vdsgsaawyakx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0gnim"]
 [ext_resource type="Texture2D" uid="uid://0bxga0jgq5kh" path="res://Art/Knight/Death/Death-Sheet.png" id="2_o4e0s"]
 [ext_resource type="Texture2D" uid="uid://cth7w0sbyiuls" path="res://Art/Knight/Idle/Idle-Sheet.png" id="3_sceiv"]
 [ext_resource type="Texture2D" uid="uid://q6ppv6h7dtje" path="res://Art/Knight/Run/Run-Sheet.png" id="4_h6bin"]
+[ext_resource type="Texture2D" uid="uid://c2cdtwkt3xvt5" path="res://Art/Sword.png" id="5_julwj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i2nl"]
 radius = 8.0
@@ -138,15 +139,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite", "handSprite")]
 motion_mode = 1
 script = ExtResource("1_0gnim")
 animatedSprite = NodePath("AnimatedSprite2D")
+handSprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6i2nl")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, -2)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("5_julwj")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_scugl")
 animation = &"Run"
-frame_progress = 0.667197
+frame_progress = 0.50798

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://makgtun5ihbf"
-path="res://.godot/imported/Hands.png-08525d5b238271ee64090f3ce2bd283b.ctex"
+uid="uid://c2cdtwkt3xvt5"
+path="res://.godot/imported/Sword.png-5ee1a4e2cd0c74de10aff25a3dea084f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Knight/Hands.png"
-dest_files=["res://.godot/imported/Hands.png-08525d5b238271ee64090f3ce2bd283b.ctex"]
+source_file="res://Art/Sword.png"
+dest_files=["res://.godot/imported/Sword.png-5ee1a4e2cd0c74de10aff25a3dea084f.ctex"]
 
 [params]
 
