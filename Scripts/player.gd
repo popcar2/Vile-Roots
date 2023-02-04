@@ -1,11 +1,20 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
+@export var HP = 3
 @export var animatedSprite: AnimatedSprite2D
 @export var handSprite: Sprite2D
+@export var GUI: Control
+
+var hearts = [] # Holds each heart variable
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	hearts = GUI.get_child(1).get_children()
+	for h in hearts:
+		print(h.name)
 
 func _physics_process(delta):
 
@@ -45,3 +54,22 @@ func moveHand():
 	else:
 		handSprite.position.x = 15
 		handSprite.flip_v = false
+
+func set_HP(new_HP):
+	HP = new_HP
+	if HP == 3:
+		hearts[0].visible = true
+		hearts[1].visible = true
+		hearts[2].visible = true
+	elif HP == 2:
+		hearts[0].visible = true
+		hearts[1].visible = true
+		hearts[2].visible = false
+	elif HP == 1:
+		hearts[0].visible = true
+		hearts[1].visible = false
+		hearts[2].visible = false
+	else:
+		hearts[0].visible = false
+		hearts[1].visible = false
+		hearts[2].visible = false

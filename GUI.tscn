@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2kqyu81p5f2v"]
+
+[ext_resource type="Texture2D" uid="uid://btcqwpufpbng" path="res://Art/GUI/empty_heart.png" id="1_el5dt"]
+[ext_resource type="Texture2D" uid="uid://xodm0vbxcga3" path="res://Art/GUI/heart.png" id="1_va4s5"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hearts Shadow" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 72.0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Hearts Shadow"]
+layout_mode = 2
+texture = ExtResource("1_el5dt")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Hearts Shadow"]
+layout_mode = 2
+texture = ExtResource("1_el5dt")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Hearts Shadow"]
+layout_mode = 2
+texture = ExtResource("1_el5dt")
+expand_mode = 3
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 72.0
+theme_override_constants/separation = 10
+
+[node name="heart1" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_va4s5")
+expand_mode = 3
+
+[node name="heart2" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_va4s5")
+expand_mode = 3
+
+[node name="heart3" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_va4s5")
+expand_mode = 3
