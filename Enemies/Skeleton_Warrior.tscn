@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://di50dfp6x0w3h"]
+[gd_scene load_steps=23 format=3 uid="uid://di50dfp6x0w3h"]
 
 [ext_resource type="Texture2D" uid="uid://cdiib64dpoblj" path="res://Art/Skeleton/Skeleton - Warrior/Death/Death-Sheet.png" id="1_pexvy"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_sns0s"]
@@ -139,12 +139,8 @@ animations = [{
 radius = 12.0
 height = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ky0nd"]
-radius = 96.566
-
-[node name="Skeleton_Warrior" type="RigidBody2D"]
-collision_mask = 0
-gravity_scale = 0.0
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(1.4, 1.4)
 script = ExtResource("1_sns0s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -154,13 +150,3 @@ animation = &"Run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_6k3mh")
-
-[node name="Alert" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="Radius" type="CollisionShape2D" parent="Alert"]
-shape = SubResource("CircleShape2D_ky0nd")
-
-[connection signal="body_entered" from="Alert" to="." method="_on_alert_body_entered"]

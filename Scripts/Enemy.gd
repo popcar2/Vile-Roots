@@ -1,23 +1,24 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 var health = 5
-var targetted_entity = null
-var state = "wander"
+@export var move_speed = 70
+var targeted_entity: CharacterBody2D
+@onready var animated_sprite: AnimatedSprite2D = $"AnimatedSprite2D"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	targeted_entity = get_tree().get_first_node_in_group("player")
+	animated_sprite.play("Run")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if state == "chase":
-		rotation = global_position.angle_to_point(targetted_entity.global_position)
+	var motion = position.direction_to(targeted_entity.position)
+	if motion.x < 0:
+		animated_sprite.flip_h = true
+	elif motion.x > 0:
+		animated_sprite.flip_h = false
+	move_and_collide(motion * delta * move_speed)
 
 	if health <= 0:
 		queue_free()
-
-
-func _on_alert_body_entered(body):
-	if !is_instance_valid(targetted_entity):
-		targetted_entity = body
-		state = "chase"

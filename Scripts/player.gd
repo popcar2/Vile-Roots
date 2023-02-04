@@ -4,7 +4,9 @@ extends CharacterBody2D
 @export var HP = 3
 @export var animatedSprite: AnimatedSprite2D
 @export var handSprite: Sprite2D
+@export var handSpriteHolder: Node2D
 @export var GUI: Control
+@export var animationPlayer: AnimationPlayer
 
 var hearts = [] # Holds each heart variable
 
@@ -21,6 +23,7 @@ func _physics_process(delta):
 
 	move()
 	moveHand()
+	attack()
 	move_and_slide()
 
 func move():
@@ -48,13 +51,20 @@ func move():
 		animatedSprite.flip_h = false
 
 func moveHand():
-	handSprite.look_at(get_global_mouse_position())
-	if position.x > get_global_mouse_position().x:
-		handSprite.position.x = -15
+	var mousePos = get_global_mouse_position()
+	handSpriteHolder.look_at(mousePos)
+	if position.x > mousePos.x:
 		handSprite.flip_v = true
 	else:
-		handSprite.position.x = 15
 		handSprite.flip_v = false
+
+func attack():
+	if Input.is_action_just_pressed("attack"):
+		var mousePos = get_global_mouse_position()
+		if position.x < mousePos.x:
+			animationPlayer.play("swing")
+		else:
+			animationPlayer.play("swing_opposite")
 
 func set_HP(new_HP):
 	HP = new_HP
