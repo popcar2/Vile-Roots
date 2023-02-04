@@ -155,6 +155,8 @@ animations = [{
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ebtn5")
+health = 2
+move_speed = 150
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5w5hm")

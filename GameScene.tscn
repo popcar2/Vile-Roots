@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbgto1ow5augu" path="res://Art/TX Tileset Wall.png" id="3_3gxhg"]
 [ext_resource type="Texture2D" uid="uid://dhxrkpdg2e8xi" path="res://Art/TX Props.png" id="4_bhj7x"]
 [ext_resource type="Texture2D" uid="uid://bd8mmpyjoac7" path="res://Art/TX Plant.png" id="5_exqr2"]
-[ext_resource type="PackedScene" path="res://GUI.tscn" id="7_esx56"]
+[ext_resource type="PackedScene" uid="uid://d2kqyu81p5f2v" path="res://GUI.tscn" id="7_esx56"]
 [ext_resource type="PackedScene" uid="uid://di50dfp6x0w3h" path="res://Enemies/Skeleton_Warrior.tscn" id="8_s3q6g"]
 [ext_resource type="PackedScene" uid="uid://dwrxrsuocq2mj" path="res://Enemies/Skeleton_Base.tscn" id="9_mp141"]
 [ext_resource type="PackedScene" uid="uid://dodin1n2683tv" path="res://Enemies/Skeleton_Mage.tscn" id="10_dbypi"]
@@ -339,7 +339,7 @@ size = Vector2(20, 464)
 [node name="GameScene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(0.701961, 0.701961, 0.701961, 1)
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
 tile_set = SubResource("TileSet_nbati")
 cell_quadrant_size = 32
 format = 2

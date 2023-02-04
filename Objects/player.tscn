@@ -294,4 +294,3 @@ wait_time = 0.7
 one_shot = true
 
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

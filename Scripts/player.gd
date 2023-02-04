@@ -98,11 +98,8 @@ func set_HP(new_HP):
 func _on_attack_delay_timeout():
 	var mousePos = get_global_mouse_position()
 	var new_slash = slash.instantiate()
-	new_slash.position = position
+	new_slash.position = position + handSpriteHolder.position
 	new_slash.look_at(mousePos)
 	new_slash.rotation_degrees += 90
 	
 	get_parent().add_sibling(new_slash)
-
-func _on_attack_cooldown_timeout():
-	pass # Replace with function body.
