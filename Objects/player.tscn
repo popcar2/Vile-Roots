@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://vdsgsaawyakx"]
+[gd_scene load_steps=24 format=3]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_0gnim"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0gnim"]
 [ext_resource type="Texture2D" uid="uid://0bxga0jgq5kh" path="res://Art/Knight/Death/Death-Sheet.png" id="2_o4e0s"]
 [ext_resource type="Texture2D" uid="uid://cth7w0sbyiuls" path="res://Art/Knight/Idle/Idle-Sheet.png" id="3_sceiv"]
 [ext_resource type="Texture2D" uid="uid://q6ppv6h7dtje" path="res://Art/Knight/Run/Run-Sheet.png" id="4_h6bin"]

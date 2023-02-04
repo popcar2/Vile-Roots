@@ -12,6 +12,7 @@ var hearts = [] # Holds each heart variable
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	return
 	hearts = GUI.get_child(1).get_children()
 	for h in hearts:
 		print(h.name)
