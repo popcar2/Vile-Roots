@@ -136,7 +136,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_840dt"]
-height = 34.0
+radius = 8.0
+height = 32.0
 
 [node name="Skeleton_Mage" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -147,10 +148,11 @@ knockbackReceived = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5b5xf")
-animation = &"Death"
+animation = &"Run"
+frame_progress = 0.921161
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_840dt")
 
 [node name="DisappearDelay" type="Timer" parent="."]

@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://q6ppv6h7dtje" path="res://Art/Knight/Run/Run-Sheet.png" id="4_h6bin"]
 [ext_resource type="Texture2D" uid="uid://c2cdtwkt3xvt5" path="res://Art/Sword.png" id="5_julwj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i2nl"]
-radius = 8.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnu64"]
 atlas = ExtResource("2_o4e0s")
 region = Rect2(0, 0, 48, 32)
@@ -139,6 +136,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i2nl"]
+radius = 6.0
+height = 26.0
+
 [sub_resource type="Animation" id="Animation_7ngpy"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -266,13 +267,14 @@ handSprite = NodePath("Node2D/Sprite2D")
 handSpriteHolder = NodePath("Node2D")
 animationPlayer = NodePath("Node2D/AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6i2nl")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_scugl")
-animation = &"Run"
-frame_progress = 0.50798
+animation = &"Idle"
+frame = 3
+frame_progress = 0.539554
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6i2nl")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -295,4 +297,9 @@ one_shot = true
 wait_time = 0.7
 one_shot = true
 
+[node name="IFrames" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="timeout" from="IFrames" to="." method="_on_IFrames_timeout"]

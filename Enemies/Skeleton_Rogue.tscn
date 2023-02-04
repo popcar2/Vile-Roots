@@ -136,7 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pdgx"]
-radius = 12.0
+radius = 8.0
 
 [node name="Skeleton_Rogue" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -147,7 +147,8 @@ knockbackReceived = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0tfvn")
-animation = &"Death"
+animation = &"Run"
+frame_progress = 0.080883
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

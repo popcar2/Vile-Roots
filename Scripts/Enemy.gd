@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var knockback_damp = 1.0
 @onready var animated_sprite: AnimatedSprite2D = $"AnimatedSprite2D"
 @onready var DisappearDelayTimer = $"DisappearDelay"
+@onready var collider = $"CollisionShape2D"
 
 var player: CharacterBody2D
 var isDead = false
@@ -15,7 +16,6 @@ var knockbackVector = Vector2(0, 0)
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	animated_sprite.play("Run")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,8 +42,11 @@ func take_damage(dmg):
 		if isDead == false:
 			animated_sprite.play("Death")
 			DisappearDelayTimer.start()
+			call_deferred("disable_collider")
 		isDead = true
 
+func disable_collider():
+	collider.disabled = true
 
 func _on_disappear_delay_timeout():
 	queue_free()

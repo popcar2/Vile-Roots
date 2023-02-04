@@ -10,23 +10,37 @@ extends CharacterBody2D
 
 @onready var attackDelayTimer = $"AttackDelay"
 @onready var attackCooldownTimer = $"AttackCooldown"
+@onready var iFramesTimer = $"IFrames"
+@onready var collider = $"CollisionShape2D"
 
 var slash = preload("res://Objects/slash.tscn")
 
 var hearts = [] # Holds each heart variable
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var knockbackVector = Vector2(0, 0)
+var isDead = false
 
 func _ready():
 	hearts = GUI.get_child(1).get_children()
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	
+	if isDead:
+		return
 
 	move()
 	moveHand()
 	attack()
+	
+	knockbackVector = knockbackVector.move_toward(Vector2(0, 0), delta * 1000)
+	velocity += knockbackVector
+	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("enemy"):
+			handle_enemy_collision(collision.get_normal())
+			return
 
 func move():
 	var x_direction = Input.get_axis("left", "right")
@@ -41,7 +55,7 @@ func move():
 		velocity.y = y_direction * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
+	
 	if x_direction or y_direction:
 		animatedSprite.play("Run")
 		if x_direction < 0:
@@ -76,6 +90,12 @@ func attack():
 		else:
 			animationPlayer.play("swing_opposite")
 
+func handle_enemy_collision(knockback):
+	collider.disabled = true
+	set_HP(HP - 1)
+	iFramesTimer.start()
+	knockbackVector = knockback * 320
+
 func set_HP(new_HP):
 	HP = new_HP
 	if HP == 3:
@@ -94,6 +114,8 @@ func set_HP(new_HP):
 		hearts[0].visible = false
 		hearts[1].visible = false
 		hearts[2].visible = false
+		isDead = true
+		animatedSprite.play("Death")
 
 func _on_attack_delay_timeout():
 	var mousePos = get_global_mouse_position()
@@ -103,3 +125,7 @@ func _on_attack_delay_timeout():
 	new_slash.rotation_degrees += 90
 	
 	get_parent().add_sibling(new_slash)
+
+
+func _on_IFrames_timeout():
+	collider.disabled = false
