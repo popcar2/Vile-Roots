@@ -23,7 +23,6 @@ func _ready():
 	hearts = GUI.get_child(1).get_children()
 
 func _physics_process(delta):
-	
 	if isDead:
 		return
 

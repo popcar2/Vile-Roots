@@ -137,7 +137,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6k3mh"]
 radius = 7.14286
-height = 30.0
 
 [node name="Skeleton_Warrior" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.4, 1.4)
