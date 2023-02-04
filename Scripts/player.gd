@@ -8,18 +8,20 @@ extends CharacterBody2D
 @export var GUI: Control
 @export var animationPlayer: AnimationPlayer
 
+@onready var attackDelayTimer = $"AttackDelay"
+@onready var attackCooldownTimer = $"AttackCooldown"
+
+var slash = preload("res://Objects/slash.tscn")
+
 var hearts = [] # Holds each heart variable
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	return
 	hearts = GUI.get_child(1).get_children()
-	for h in hearts:
-		print(h.name)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	move()
 	moveHand()
@@ -59,8 +61,16 @@ func moveHand():
 		handSprite.flip_v = false
 
 func attack():
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
+		if !attackCooldownTimer.is_stopped():
+			return
+		
+		attackCooldownTimer.start()
+		attackDelayTimer.start()
+		
 		var mousePos = get_global_mouse_position()
+		if animationPlayer.is_playing():
+			animationPlayer.stop()
 		if position.x < mousePos.x:
 			animationPlayer.play("swing")
 		else:
@@ -84,3 +94,15 @@ func set_HP(new_HP):
 		hearts[0].visible = false
 		hearts[1].visible = false
 		hearts[2].visible = false
+
+func _on_attack_delay_timeout():
+	var mousePos = get_global_mouse_position()
+	var new_slash = slash.instantiate()
+	new_slash.position = position
+	new_slash.look_at(mousePos)
+	new_slash.rotation_degrees += 90
+	
+	get_parent().add_sibling(new_slash)
+
+func _on_attack_cooldown_timeout():
+	pass # Replace with function body.
