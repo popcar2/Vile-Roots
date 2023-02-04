@@ -257,6 +257,8 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite", "handSprite", "handSpriteHolder", "animationPlayer")]
+collision_layer = 2
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_h75mc")
 animatedSprite = NodePath("AnimatedSprite2D")
