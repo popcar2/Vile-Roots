@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfemoogx6xi7t"]
+
+[ext_resource type="Texture2D" uid="uid://7mjoldnfawkg" path="res://Art/Bush 1.png" id="1_ryoh7"]
+[ext_resource type="Script" path="res://Scripts/bush.gd" id="1_yu3vy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hv3lh"]
+radius = 11.0454
+
+[node name="Bush1" type="CharacterBody2D" groups=["bush"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_yu3vy")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+modulate = Color(0.733333, 0, 0.462745, 1)
+texture = ExtResource("1_ryoh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hv3lh")
+
+[node name="DisappearDelay" type="Timer" parent="."]
+
+[connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]

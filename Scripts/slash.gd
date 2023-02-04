@@ -10,6 +10,8 @@ func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(1)
 		body.knockbackVector -= transform.y * knockback_force * body.knockbackReceived
+	if body.is_in_group("bush"):
+		body.take_damage(1)
 
 
 func _on_timer_timeout():
