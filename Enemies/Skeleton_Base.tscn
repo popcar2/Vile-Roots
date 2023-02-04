@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dwrxrsuocq2mj"]
+[gd_scene load_steps=25 format=3 uid="uid://dwrxrsuocq2mj"]
 
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ebtn5"]
 [ext_resource type="Texture2D" uid="uid://5scoopuvd0kx" path="res://Art/Skeleton/Skeleton - Base/Death/Death-Sheet.png" id="1_xgc1c"]
 [ext_resource type="Texture2D" uid="uid://c5cfeds4j430q" path="res://Art/Skeleton/Skeleton - Base/Idle/Idle-Sheet.png" id="2_6xrfb"]
 [ext_resource type="Texture2D" uid="uid://dgc2en4sraxqy" path="res://Art/Skeleton/Skeleton - Base/Run/Run-Sheet.png" id="3_70r0f"]
@@ -103,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sunpf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
@@ -150,14 +151,21 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ly1e8"]
 
-[node name="Skeleton_Base" type="RigidBody2D"]
-collision_mask = 0
-gravity_scale = 0.0
+[node name="Skeleton_Base" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ebtn5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5w5hm")
-animation = &"Run"
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2.5)
+position = Vector2(-2, 8)
 shape = SubResource("CapsuleShape2D_ly1e8")
+
+[node name="DisappearDelay" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]

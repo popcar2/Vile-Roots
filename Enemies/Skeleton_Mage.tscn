@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dodin1n2683tv"]
+[gd_scene load_steps=23 format=3 uid="uid://dodin1n2683tv"]
 
 [ext_resource type="Texture2D" uid="uid://6np1mjqtm3yd" path="res://Art/Skeleton/Skeleton - Mage/Death/Death-Sheet.png" id="1_03n06"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_6k0ig"]
 [ext_resource type="Texture2D" uid="uid://g88dwfraexek" path="res://Art/Skeleton/Skeleton - Mage/Idle/Idle-Sheet.png" id="2_n14eo"]
 [ext_resource type="Texture2D" uid="uid://bhk6r0y6ycmja" path="res://Art/Skeleton/Skeleton - Mage/Run/Run-Sheet.png" id="3_ke04e"]
 
@@ -89,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nd131")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
@@ -137,14 +138,21 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_840dt"]
 height = 34.0
 
-[node name="Skeleton_Mage" type="RigidBody2D"]
-collision_mask = 0
-gravity_scale = 0.0
+[node name="Skeleton_Mage" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_6k0ig")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5b5xf")
-animation = &"Run"
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0)
+position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_840dt")
+
+[node name="DisappearDelay" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]
