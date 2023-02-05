@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cth7w0sbyiuls" path="res://Art/Knight/Idle/Idle-Sheet.png" id="3_sceiv"]
 [ext_resource type="Texture2D" uid="uid://q6ppv6h7dtje" path="res://Art/Knight/Run/Run-Sheet.png" id="4_h6bin"]
 [ext_resource type="Texture2D" uid="uid://c2cdtwkt3xvt5" path="res://Art/Sword.png" id="5_julwj"]
-[ext_resource type="AudioStream" uid="uid://decj331brq2xl" path="res://Music/swish-1.wav" id="6_ya6uy"]
-[ext_resource type="AudioStream" uid="uid://bvvsbymwc1dac" path="res://Music/sfx_deathscream_human4.wav" id="7_vc1vy"]
+[ext_resource type="AudioStream" uid="uid://decj331brq2xl" path="res://Music/swish-1.wav" id="6_6abul"]
+[ext_resource type="AudioStream" uid="uid://bvvsbymwc1dac" path="res://Music/sfx_deathscream_human4.wav" id="7_r76ry"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnu64"]
 atlas = ExtResource("2_o4e0s")
@@ -309,11 +309,11 @@ one_shot = true
 shape = SubResource("CapsuleShape2D_6i2nl")
 
 [node name="swishSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ya6uy")
+stream = ExtResource("6_6abul")
 volume_db = -10.0
 
 [node name="ouchSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_vc1vy")
+stream = ExtResource("7_r76ry")
 
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="IFrames" to="." method="_on_IFrames_timeout"]
