@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvjy6i8ewusdj"]
+[gd_scene load_steps=20 format=3 uid="uid://cguqacnen6qnv"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
