@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var DisappearDelayTimer = $"DisappearDelay"
 @onready var animationPlayer = $"AnimationPlayer"
 @onready var roots = $"Roots"
+@onready var ouchSFX = $"ouchSFX"
 
 var player: CharacterBody2D
 var isDead = false
@@ -17,6 +18,7 @@ func _ready():
 func take_damage(dmg):
 	health -= dmg
 	play_hit_effect()
+	ouchSFX.play()
 	
 	if health <= 0:
 		if isDead == false:

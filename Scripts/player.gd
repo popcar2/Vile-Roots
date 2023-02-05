@@ -150,7 +150,6 @@ func _on_attack_delay_timeout():
 	get_parent().add_sibling(new_slash)
 	swishSFX.play()
 
-
 func _on_IFrames_timeout():
 	can_touch_enemies(true)
 
