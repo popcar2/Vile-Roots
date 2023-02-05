@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $"AnimatedSprite2D"
 @onready var DisappearDelayTimer = $"DisappearDelay"
 @onready var collider = $"CollisionShape2D"
+@export var score = 0
 
 var player: CharacterBody2D
 var isDead = false
@@ -43,6 +44,7 @@ func take_damage(dmg):
 		if isDead == false:
 			animated_sprite.play("Death")
 			DisappearDelayTimer.start()
+			get_tree().get_first_node_in_group("gui").add_score(score)
 			call_deferred("disable_collider")
 		isDead = true
 

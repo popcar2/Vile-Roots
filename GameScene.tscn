@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cguqacnen6qnv"]
+[gd_scene load_steps=21 format=3 uid="uid://cguqacnen6qnv"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhxrkpdg2e8xi" path="res://Art/TX Props.png" id="4_bhj7x"]
 [ext_resource type="Texture2D" uid="uid://bd8mmpyjoac7" path="res://Art/TX Plant.png" id="5_exqr2"]
 [ext_resource type="PackedScene" uid="uid://d2kqyu81p5f2v" path="res://GUI.tscn" id="7_esx56"]
+[ext_resource type="Script" path="res://Scripts/GameGUI.gd" id="8_roy6i"]
 [ext_resource type="Script" path="res://Scripts/BushSpawner.gd" id="12_wkmqt"]
 [ext_resource type="Script" path="res://Scripts/SkeletonSpawner.gd" id="13_7gmgk"]
 
@@ -387,10 +388,9 @@ position = Vector2(776, 216)
 shape = SubResource("WorldBoundaryShape2D_xuw85")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(1.1, 1.1)
-transform = Transform2D(1.1, 0, 0, 1.1, 0, 0)
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource("7_esx56")]
+[node name="GUI" parent="CanvasLayer" groups=["gui"] instance=ExtResource("7_esx56")]
+script = ExtResource("8_roy6i")
 
 [node name="BushSpawner" type="Node2D" parent="."]
 script = ExtResource("12_wkmqt")
@@ -403,7 +403,7 @@ autostart = true
 script = ExtResource("13_7gmgk")
 
 [node name="SpawnTimer" type="Timer" parent="SkeletonSpawner"]
-wait_time = 4.0
+wait_time = 3.8
 autostart = true
 
 [connection signal="timeout" from="BushSpawner/SpawnTimer" to="BushSpawner" method="_on_spawn_timer_timeout"]

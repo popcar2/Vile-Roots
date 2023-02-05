@@ -59,3 +59,17 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("1_va4s5")
 expand_mode = 3
+
+[node name="ScoreText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -394.0
+offset_top = 20.0
+offset_right = -29.0
+offset_bottom = 143.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 48
+text = "SCORE: 0"
+text_direction = 2

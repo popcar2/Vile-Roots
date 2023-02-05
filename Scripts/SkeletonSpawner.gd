@@ -10,16 +10,14 @@ var mageSkeleton = preload("res://Enemies/Skeleton_Mage.tscn")
 var faster_speed = 0
 
 func _on_spawn_timer_timeout():
-	spawnTimer.wait_time = 4 - faster_speed
+	spawnTimer.wait_time = 3.8 - faster_speed
 	
-	if spawnTimer.wait_time > 3.5:
+	if spawnTimer.wait_time > 3.4:
 		faster_speed += 0.05
 	elif spawnTimer.wait_time > 2.5:
 		faster_speed += 0.03
 	else:
 		faster_speed += 0.01
-	
-	print(spawnTimer.wait_time)
 	
 	var random = RandomNumberGenerator.new()
 	var spawn_direction = random.randi_range(1, 4)

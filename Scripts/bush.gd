@@ -22,6 +22,7 @@ func take_damage(dmg):
 		if isDead == false:
 			DisappearDelayTimer.start()
 			animationPlayer.play_backwards("spawn")
+			get_tree().get_first_node_in_group("gui").add_score(15)
 		isDead = true
 
 func play_hit_effect():
