@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cguqacnen6qnv"]
+[gd_scene load_steps=25 format=3 uid="uid://cguqacnen6qnv"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://d2kqyu81p5f2v" path="res://GUI.tscn" id="7_esx56"]
 [ext_resource type="Script" path="res://Scripts/GameGUI.gd" id="8_roy6i"]
 [ext_resource type="AudioStream" uid="uid://cbxjv6gxyum4" path="res://Music/mixkit-arcade-game-jump-coin-216.wav" id="11_2wyjl"]
+[ext_resource type="Theme" uid="uid://ccc4m38omfmrg" path="res://MaineMenuSetup.tres" id="11_pb3td"]
 [ext_resource type="AudioStream" uid="uid://dfhq3ie4l768p" path="res://Music/Memoraphile - Spooky Dungeon.ogg" id="12_btw66"]
 [ext_resource type="Script" path="res://Scripts/BushSpawner.gd" id="12_wkmqt"]
 [ext_resource type="Script" path="res://Scripts/SkeletonSpawner.gd" id="13_7gmgk"]
+[ext_resource type="Script" path="res://Scripts/LoopForever.gd" id="14_75dqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ws4c4"]
 texture = ExtResource("2_uf1fp")
@@ -422,6 +424,7 @@ offset_right = 207.464
 offset_bottom = 96.136
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("11_pb3td")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/RetryMenu"]
 layout_mode = 1
@@ -457,7 +460,7 @@ vertical_alignment = 1
 [node name="Retry?" type="Button" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Retry?"
+text = "Retry"
 
 [node name="Quit" type="Button" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -471,8 +474,10 @@ stream = ExtResource("11_2wyjl")
 stream = ExtResource("12_btw66")
 volume_db = -15.0
 autoplay = true
+script = ExtResource("14_75dqf")
 
 [connection signal="timeout" from="BushSpawner/SpawnTimer" to="BushSpawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SkeletonSpawner/SpawnTimer" to="SkeletonSpawner" method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Retry?" to="Player" method="_on_retry_pressed"]
 [connection signal="pressed" from="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="Player" method="_on_quit_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dp2rohxerctx6"]
+[gd_scene load_steps=32 format=3 uid="uid://dp2rohxerctx6"]
 
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="1_17yfj"]
 [ext_resource type="Texture2D" uid="uid://db1uuwb5bk5u6" path="res://Art/TX Tileset Grass.png" id="2_8j0bo"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dhxrkpdg2e8xi" path="res://Art/TX Props.png" id="4_foeni"]
 [ext_resource type="Texture2D" uid="uid://c3p71m3j0b1pb" path="res://Art/TX Shadow Plant.png" id="5_03dys"]
 [ext_resource type="Texture2D" uid="uid://kra6rfe7a8sa" path="res://Art/TX Shadow.png" id="6_cex4b"]
+[ext_resource type="Theme" uid="uid://ccc4m38omfmrg" path="res://MaineMenuSetup.tres" id="9_83vmv"]
 [ext_resource type="AudioStream" uid="uid://cbxjv6gxyum4" path="res://Music/mixkit-arcade-game-jump-coin-216.wav" id="9_d573e"]
 [ext_resource type="AudioStream" uid="uid://dttng8jwqnhmb" path="res://Music/music_zapsplat_easy_cheesy.mp3" id="9_sdqd3"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="10_ka2bv"]
+[ext_resource type="Script" path="res://Scripts/LoopForever.gd" id="12_3ewtj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbsuc"]
 texture = ExtResource("2_8j0bo")
@@ -1615,8 +1617,6 @@ texture = ExtResource("6_cex4b")
 [sub_resource type="TileSet" id="TileSet_8ja6t"]
 sources/0 = SubResource("TileSetAtlasSource_rb7af")
 
-[sub_resource type="Theme" id="Theme_yvwxv"]
-
 [node name="MainMenu" type="Node2D"]
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -1683,7 +1683,7 @@ offset_right = -385.0
 offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_yvwxv")
+theme = ExtResource("9_83vmv")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main Menu"]
 layout_mode = 1
@@ -1745,8 +1745,10 @@ one_shot = true
 stream = ExtResource("9_sdqd3")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("12_3ewtj")
 
 [connection signal="pressed" from="CanvasLayer/Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="CanvasLayer" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="timeout" from="PlayDelay" to="CanvasLayer" method="_on_play_delay_timeout"]
 [connection signal="timeout" from="QuitDelay" to="CanvasLayer" method="_on_quit_delay_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_finished"]
