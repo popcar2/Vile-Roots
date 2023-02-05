@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwrxrsuocq2mj"]
+[gd_scene load_steps=27 format=3 uid="uid://dwrxrsuocq2mj"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ebtn5"]
 [ext_resource type="Texture2D" uid="uid://5scoopuvd0kx" path="res://Art/Skeleton/Skeleton - Base/Death/Death-Sheet.png" id="1_xgc1c"]
 [ext_resource type="Texture2D" uid="uid://c5cfeds4j430q" path="res://Art/Skeleton/Skeleton - Base/Idle/Idle-Sheet.png" id="2_6xrfb"]
 [ext_resource type="Texture2D" uid="uid://dgc2en4sraxqy" path="res://Art/Skeleton/Skeleton - Base/Run/Run-Sheet.png" id="3_70r0f"]
+[ext_resource type="AudioStream" uid="uid://5kx0vx1rvcbo" path="res://Music/swordslash.wav" id="5_s0qbq"]
+[ext_resource type="AudioStream" uid="uid://0irx658k7g2q" path="res://Music/retro_die_01.ogg" id="6_3sbup"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkh3j"]
 atlas = ExtResource("1_xgc1c")
@@ -152,7 +154,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ly1e8"]
 radius = 7.0
 
-[node name="Skeleton_Base" type="CharacterBody2D" groups=["enemy"]]
+[node name="Skeleton_Base" type="CharacterBody2D" node_paths=PackedStringArray("enemyhit", "enemydead") groups=["enemy"]]
 scale = Vector2(1.4, 1.4)
 collision_layer = 4
 collision_mask = 2
@@ -160,6 +162,9 @@ safe_margin = 0.01
 script = ExtResource("1_ebtn5")
 health = 2
 move_speed = 100
+enemyhit = NodePath("AudioStreamPlayer2D")
+enemydead = NodePath("AudioStreamPlayer2D2")
+score = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5w5hm")
@@ -173,5 +178,13 @@ shape = SubResource("CapsuleShape2D_ly1e8")
 [node name="DisappearDelay" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s0qbq")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3sbup")
+volume_db = -20.0
 
 [connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]

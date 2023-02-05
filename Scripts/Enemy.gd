@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $"AnimatedSprite2D"
 @onready var DisappearDelayTimer = $"DisappearDelay"
 @onready var collider = $"CollisionShape2D"
+@export var enemyhit: AudioStreamPlayer2D
+@export var enemydead: AudioStreamPlayer2D
 @export var score = 0
 
 var player: CharacterBody2D
@@ -38,10 +40,13 @@ func _process(delta):
 	
 func take_damage(dmg):
 	health -= dmg
+	if health > 0:
+		enemyhit.play()
 	play_hit_effect()
 	
 	if health <= 0:
 		if isDead == false:
+			enemydead.play()
 			animated_sprite.play("Death")
 			DisappearDelayTimer.start()
 			get_tree().get_first_node_in_group("gui").add_score(score)
