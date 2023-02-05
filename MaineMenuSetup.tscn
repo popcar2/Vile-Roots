@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dp2rohxerctx6"]
+[gd_scene load_steps=31 format=3 uid="uid://dp2rohxerctx6"]
 
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="1_17yfj"]
 [ext_resource type="Texture2D" uid="uid://db1uuwb5bk5u6" path="res://Art/TX Tileset Grass.png" id="2_8j0bo"]
@@ -1615,6 +1615,8 @@ texture = ExtResource("6_cex4b")
 [sub_resource type="TileSet" id="TileSet_8ja6t"]
 sources/0 = SubResource("TileSetAtlasSource_rb7af")
 
+[sub_resource type="Theme" id="Theme_yvwxv"]
+
 [node name="MainMenu" type="Node2D"]
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -1681,6 +1683,7 @@ offset_right = -385.0
 offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_yvwxv")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main Menu"]
 layout_mode = 1
