@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cguqacnen6qnv"]
+[gd_scene load_steps=22 format=3 uid="uid://cguqacnen6qnv"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bd8mmpyjoac7" path="res://Art/TX Plant.png" id="5_exqr2"]
 [ext_resource type="PackedScene" uid="uid://d2kqyu81p5f2v" path="res://GUI.tscn" id="7_esx56"]
 [ext_resource type="Script" path="res://Scripts/GameGUI.gd" id="8_roy6i"]
+[ext_resource type="AudioStream" uid="uid://cbxjv6gxyum4" path="res://Music/mixkit-arcade-game-jump-coin-216.wav" id="11_2wyjl"]
 [ext_resource type="Script" path="res://Scripts/BushSpawner.gd" id="12_wkmqt"]
 [ext_resource type="Script" path="res://Scripts/SkeletonSpawner.gd" id="13_7gmgk"]
 
@@ -358,11 +359,13 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Player" parent="." node_paths=PackedStringArray("GUI") groups=["player"] instance=ExtResource("1_aj4we")]
+[node name="Player" parent="." node_paths=PackedStringArray("GUI", "retry", "buttonclicked") groups=["player"] instance=ExtResource("1_aj4we")]
 position = Vector2(212, 153)
 scale = Vector2(1.5, 1.5)
 SPEED = 200.0
 GUI = NodePath("../CanvasLayer/GUI")
+retry = NodePath("../CanvasLayer2")
+buttonclicked = NodePath("../CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/AudioStreamPlayer2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(384, 216)
@@ -406,5 +409,64 @@ script = ExtResource("13_7gmgk")
 wait_time = 3.8
 autostart = true
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="RetryMenu" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchor_right = 0.668
+anchor_bottom = 0.668
+offset_left = 208.0
+offset_top = 96.0
+offset_right = 207.464
+offset_bottom = 96.136
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/RetryMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/RetryMenu/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GameOver" type="Label" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry?" type="Button" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Retry?"
+
+[node name="Quit" type="Button" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+stream = ExtResource("11_2wyjl")
+
 [connection signal="timeout" from="BushSpawner/SpawnTimer" to="BushSpawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SkeletonSpawner/SpawnTimer" to="SkeletonSpawner" method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Retry?" to="Player" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer2/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="Player" method="_on_quit_pressed"]
