@@ -140,8 +140,10 @@ radius = 8.0
 height = 32.0
 
 [node name="Skeleton_Mage" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.4, 1.4)
 collision_layer = 4
 collision_mask = 2
+safe_margin = 0.01
 script = ExtResource("1_6k0ig")
 health = 2
 knockbackReceived = 3.0

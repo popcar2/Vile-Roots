@@ -41,6 +41,8 @@ func _physics_process(delta):
 		if collision.get_collider().is_in_group("enemy"):
 			handle_enemy_collision(collision.get_normal())
 			return
+		elif collision.get_collider().is_in_group("boundary"):
+			knockbackVector = collision.get_collider_shape().shape.normal * 300
 
 func move():
 	var x_direction = Input.get_axis("left", "right")
@@ -91,10 +93,14 @@ func attack():
 			animationPlayer.play("swing_opposite")
 
 func handle_enemy_collision(knockback):
-	collider.disabled = true
+	can_touch_enemies(false)
 	set_HP(HP - 1)
 	iFramesTimer.start()
 	knockbackVector = knockback * 320
+
+func can_touch_enemies(value):
+	set_collision_layer_value(2, value)
+	set_collision_mask_value(3, value)
 
 func set_HP(new_HP):
 	HP = new_HP
@@ -128,4 +134,4 @@ func _on_attack_delay_timeout():
 
 
 func _on_IFrames_timeout():
-	collider.disabled = false
+	can_touch_enemies(true)

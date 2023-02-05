@@ -153,8 +153,10 @@ animations = [{
 radius = 7.0
 
 [node name="Skeleton_Base" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.4, 1.4)
 collision_layer = 4
 collision_mask = 2
+safe_margin = 0.01
 script = ExtResource("1_ebtn5")
 health = 2
 move_speed = 100

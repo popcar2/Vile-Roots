@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvjy6i8ewusdj"]
+[gd_scene load_steps=22 format=3 uid="uid://cvjy6i8ewusdj"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
@@ -330,11 +330,16 @@ sources/4 = SubResource("TileSetAtlasSource_qhfhs")
 sources/5 = SubResource("TileSetAtlasSource_05x3a")
 sources/6 = SubResource("TileSetAtlasSource_lamgo")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_77j75"]
-size = Vector2(769, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7m8np"]
+normal = Vector2(0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_quy22"]
-size = Vector2(20, 464)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_13l8j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4d7ve"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xuw85"]
+normal = Vector2(-1, 0)
 
 [node name="GameScene" type="Node2D"]
 
@@ -364,23 +369,23 @@ position = Vector2(384, 216)
 current = true
 zoom = Vector2(1.5, 1.5)
 
-[node name="Level Bounds" type="StaticBody2D" parent="."]
+[node name="Level Bounds" type="StaticBody2D" parent="." groups=["boundary"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level Bounds"]
 position = Vector2(384, -8)
-shape = SubResource("RectangleShape2D_77j75")
+shape = SubResource("WorldBoundaryShape2D_7m8np")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Level Bounds"]
 position = Vector2(384, 440)
-shape = SubResource("RectangleShape2D_77j75")
+shape = SubResource("WorldBoundaryShape2D_13l8j")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Level Bounds"]
 position = Vector2(-8, 216)
-shape = SubResource("RectangleShape2D_quy22")
+shape = SubResource("WorldBoundaryShape2D_4d7ve")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Level Bounds"]
 position = Vector2(776, 216)
-shape = SubResource("RectangleShape2D_quy22")
+shape = SubResource("WorldBoundaryShape2D_xuw85")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.1, 1.1)
