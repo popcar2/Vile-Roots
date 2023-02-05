@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://dodin1n2683tv"]
+[gd_scene load_steps=25 format=3 uid="uid://dodin1n2683tv"]
 
 [ext_resource type="Texture2D" uid="uid://6np1mjqtm3yd" path="res://Art/Skeleton/Skeleton - Mage/Death/Death-Sheet.png" id="1_03n06"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_6k0ig"]
 [ext_resource type="Texture2D" uid="uid://g88dwfraexek" path="res://Art/Skeleton/Skeleton - Mage/Idle/Idle-Sheet.png" id="2_n14eo"]
 [ext_resource type="Texture2D" uid="uid://bhk6r0y6ycmja" path="res://Art/Skeleton/Skeleton - Mage/Run/Run-Sheet.png" id="3_ke04e"]
+[ext_resource type="AudioStream" uid="uid://5kx0vx1rvcbo" path="res://Music/swordslash.wav" id="5_wnwu8"]
+[ext_resource type="AudioStream" uid="uid://0irx658k7g2q" path="res://Music/retro_die_01.ogg" id="6_g8nmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_up7wh"]
 atlas = ExtResource("1_03n06")
@@ -139,7 +141,7 @@ animations = [{
 radius = 8.0
 height = 32.0
 
-[node name="Skeleton_Mage" type="CharacterBody2D" groups=["enemy"]]
+[node name="Skeleton_Mage" type="CharacterBody2D" node_paths=PackedStringArray("enemyhit", "enemydead") groups=["enemy"]]
 scale = Vector2(1.4, 1.4)
 collision_layer = 4
 collision_mask = 2
@@ -147,6 +149,9 @@ safe_margin = 0.01
 script = ExtResource("1_6k0ig")
 health = 2
 knockbackReceived = 3.0
+enemyhit = NodePath("AudioStreamPlayer2D")
+enemydead = NodePath("AudioStreamPlayer2D2")
+score = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5b5xf")
@@ -160,5 +165,13 @@ shape = SubResource("CapsuleShape2D_840dt")
 [node name="DisappearDelay" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wnwu8")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g8nmo")
+volume_db = -20.0
 
 [connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]
