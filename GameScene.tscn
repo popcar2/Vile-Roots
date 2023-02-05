@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cvjy6i8ewusdj"]
+[gd_scene load_steps=23 format=3 uid="uid://cvjy6i8ewusdj"]
 
 [ext_resource type="PackedScene" uid="uid://n12l5yl17rtm" path="res://Objects/player.tscn" id="1_aj4we"]
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="2_kbm7f"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrxrsuocq2mj" path="res://Enemies/Skeleton_Base.tscn" id="9_mp141"]
 [ext_resource type="PackedScene" uid="uid://dodin1n2683tv" path="res://Enemies/Skeleton_Mage.tscn" id="10_dbypi"]
 [ext_resource type="PackedScene" uid="uid://ch0eey1xk7uma" path="res://Enemies/Skeleton_Rogue.tscn" id="11_taypq"]
+[ext_resource type="Script" path="res://Scripts/BushSpawner.gd" id="12_wkmqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ws4c4"]
 texture = ExtResource("2_uf1fp")
@@ -345,6 +346,7 @@ normal = Vector2(-1, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.589096, 0.589096, 0.589096, 1)
+z_index = -5
 tile_set = SubResource("TileSet_nbati")
 cell_quadrant_size = 32
 format = 2
@@ -404,3 +406,12 @@ position = Vector2(396, 130)
 
 [node name="Skeleton_Rogue" parent="." instance=ExtResource("11_taypq")]
 position = Vector2(396, 246)
+
+[node name="BushSpawner" type="Node2D" parent="."]
+script = ExtResource("12_wkmqt")
+
+[node name="SpawnTimer" type="Timer" parent="BushSpawner"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="BushSpawner/SpawnTimer" to="BushSpawner" method="_on_spawn_timer_timeout"]

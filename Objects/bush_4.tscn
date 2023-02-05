@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkxr6hlpbgq7l"]
+[gd_scene load_steps=5 format=3 uid="uid://dkxr6hlpbgq7l"]
 
 [ext_resource type="Texture2D" uid="uid://cagmg8sfc3gvf" path="res://Art/Bush 4.png" id="1_jl2mm"]
 [ext_resource type="Script" path="res://Scripts/bush.gd" id="1_jsqot"]
+[ext_resource type="PackedScene" uid="uid://dufo4qrfbitjs" path="res://Objects/roots.tscn" id="2_int58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pcali"]
 radius = 22.561
 
 [node name="Bush4" type="CharacterBody2D" groups=["bush"]]
-modulate = Color(0.733333, 0, 0.462745, 1)
+modulate = Color(0.882353, 0, 0.54902, 1)
 script = ExtResource("1_jsqot")
+
+[node name="Roots" parent="." instance=ExtResource("2_int58")]
+scale = Vector2(1.2, 1.2)
 
 [node name="Bush4" type="Sprite2D" parent="."]
 texture = ExtResource("1_jl2mm")
