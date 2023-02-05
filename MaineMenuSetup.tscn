@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dp2rohxerctx6"]
+[gd_scene load_steps=30 format=3 uid="uid://dp2rohxerctx6"]
 
 [ext_resource type="Texture2D" uid="uid://u6bmqfe3sy60" path="res://Art/TX Tileset Stone Ground.png" id="1_17yfj"]
 [ext_resource type="Texture2D" uid="uid://db1uuwb5bk5u6" path="res://Art/TX Tileset Grass.png" id="2_8j0bo"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dhxrkpdg2e8xi" path="res://Art/TX Props.png" id="4_foeni"]
 [ext_resource type="Texture2D" uid="uid://c3p71m3j0b1pb" path="res://Art/TX Shadow Plant.png" id="5_03dys"]
 [ext_resource type="Texture2D" uid="uid://kra6rfe7a8sa" path="res://Art/TX Shadow.png" id="6_cex4b"]
+[ext_resource type="AudioStream" uid="uid://cbxjv6gxyum4" path="res://Music/mixkit-arcade-game-jump-coin-216.wav" id="9_d573e"]
+[ext_resource type="AudioStream" uid="uid://dttng8jwqnhmb" path="res://Music/music_zapsplat_easy_cheesy.mp3" id="9_sdqd3"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="10_ka2bv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbsuc"]
@@ -675,6 +677,54 @@ texture = ExtResource("3_fgfgl")
 [sub_resource type="TileSet" id="TileSet_152up"]
 sources/0 = SubResource("TileSetAtlasSource_7pc05")
 
+[sub_resource type="Animation" id="Animation_np5iw"]
+resource_name = "Player leave"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(210, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(250, -0.25, 0, 0.25, 0, 342, -0.25, 0, 0.25, 0, 406, -0.25, 0, 0.25, 0, 406, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3)
+}
+
 [sub_resource type="Animation" id="Animation_6kk5c"]
 resource_name = "PlayerStart"
 length = 3.0
@@ -746,54 +796,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(242, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_np5iw"]
-resource_name = "Player leave"
-length = 3.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(210, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(250, -0.25, 0, 0.25, 0, 342, -0.25, 0, 0.25, 0, 406, -0.25, 0, 0.25, 0, 406, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2, 3)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hvu44"]
@@ -1631,7 +1633,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851973, 131072, 12, 917509, 131072, 13, 983045, 131072, 14, 1048581, 131072, 15, 851974, 786432, 12, 917510, 786432, 13, 983046, 786432, 14, 1048582, 786432, 15, 851975, 851968, 12, 917511, 851968, 13, 983047, 851968, 14, 1048583, 851968, 15, 851976, 327680, 12, 917512, 327680, 13, 983048, 327680, 14, 1048584, 327680, 15, 851977, 786432, 12, 917513, 786432, 13, 983049, 786432, 14, 1048585, 786432, 15, 851978, 786432, 12, 917514, 786432, 13, 983050, 786432, 14, 1048586, 786432, 15, 851979, 851968, 12, 917515, 851968, 13, 983051, 851968, 14, 1048587, 851968, 15, 851980, 589824, 12, 851969, 524288, 18, 917505, 524288, 19, 983041, 524288, 20, 1048577, 524288, 21, 851970, 786432, 12, 917506, 786432, 13, 983042, 786432, 14, 1048578, 786432, 15, 851971, 851968, 12, 917507, 851968, 13, 983043, 851968, 14, 1048579, 851968, 15, 851972, 720896, 18, 917508, 720896, 19, 983044, 720896, 20, 1048580, 720896, 21, 720896, 1572864, 5, 786432, 1572864, 5, 851968, 1572864, 6, 917504, 1572864, 7, 983040, 1572864, 8, 1048576, 1572864, 9, 655360, 1572864, 5, 589824, 1572864, 5, 524288, 1572864, 5, 458752, 1572864, 5, 393216, 1572864, 5, 327680, 1572864, 5, 262144, 1572864, 5, 196608, 1572864, 5, 131072, 1572864, 5, 65536, 1572864, 5, 0, 1572864, 4, 1, 1638400, 4, 2, 1703936, 4, 3, 1638400, 4, 4, 1703936, 4, 5, 1638400, 4, 6, 1703936, 4, 7, 1638400, 4, 8, 1703936, 4, 9, 1638400, 4, 10, 1703936, 4, 11, 1638400, 4, 12, 1703936, 4, 13, 1638400, 4, 14, 1703936, 4, 15, 1638400, 4, 16, 1703936, 4, 17, 1638400, 4, 18, 1703936, 4, 19, 1638400, 4, 20, 1703936, 4, 21, 1638400, 4, 22, 1703936, 4, 23, 1638400, 4, 24, 1703936, 4, 25, 1769472, 4, 65561, 1769472, 5, 131097, 1769472, 5, 196633, 1769472, 5, 262169, 1769472, 5, 327705, 1769472, 5, 393241, 1769472, 5, 458777, 1769472, 5, 524313, 1769472, 5, 589849, 1769472, 5, 655385, 1769472, 5, 720921, 1769472, 5, 786457, 1769472, 5, 851993, 1769472, 6, 851981, 1638400, 6, 851982, 786432, 12, 851983, 851968, 12, 851984, 524288, 12, 851985, 589824, 12, 851986, 786432, 12, 851987, 851968, 12, 851988, 327680, 12, 851989, 393216, 12, 851990, 786432, 12, 851991, 851968, 12, 851992, 589824, 12, 917529, 1769472, 7, 983065, 1769472, 8, 1048601, 1769472, 9, 917521, 589824, 13, 983057, 589824, 14, 1048593, 589824, 15, 917522, 786432, 13, 983058, 786432, 14, 1048594, 786432, 15, 917523, 851968, 13, 983059, 851968, 14, 1048595, 851968, 15, 917524, 327680, 13, 983060, 327680, 14, 1048596, 327680, 15, 917525, 393216, 13, 983061, 393216, 14, 1048597, 393216, 15, 917526, 786432, 13, 983062, 786432, 14, 1048598, 786432, 15, 917527, 851968, 13, 983063, 851968, 14, 1048599, 851968, 15, 917528, 589824, 13, 983064, 589824, 14, 1048600, 589824, 15, 917518, 786432, 13, 983054, 786432, 14, 1048590, 786432, 15, 917519, 851968, 13, 983055, 851968, 14, 1048591, 851968, 15, 917520, 524288, 13, 983056, 524288, 14, 1048592, 524288, 15)
 
 [node name="MainMenuPlayer" parent="." instance=ExtResource("3_mp7eu")]
-position = Vector2(211, 247)
+position = Vector2(211, 242)
 scale = Vector2(-1, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenuPlayer"]
@@ -1662,12 +1664,13 @@ position = Vector2(384, 216)
 current = true
 zoom = Vector2(1.5, 1.5)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("animationplayer", "doorani", "timer", "quittimer")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("animationplayer", "doorani", "timer", "quittimer", "buttonclicked")]
 script = ExtResource("10_ka2bv")
 animationplayer = NodePath("../MainMenuPlayer/AnimationPlayer")
 doorani = NodePath("../AnimatedSprite2D")
 timer = NodePath("../PlayDelay")
 quittimer = NodePath("../QuitDelay")
+buttonclicked = NodePath("Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/AudioStreamPlayer2D")
 
 [node name="Main Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -1724,6 +1727,9 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+stream = ExtResource("9_d573e")
+
 [node name="PlayDelay" type="Timer" parent="."]
 wait_time = 3.5
 one_shot = true
@@ -1731,6 +1737,11 @@ one_shot = true
 [node name="QuitDelay" type="Timer" parent="."]
 wait_time = 3.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_sdqd3")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="CanvasLayer" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]

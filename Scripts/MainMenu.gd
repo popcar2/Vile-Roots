@@ -5,14 +5,17 @@ extends CanvasLayer
 @export var doorani: AnimatedSprite2D
 @export var timer: Timer
 @export var quittimer: Timer
+@export var buttonclicked: AudioStreamPlayer2D
 
 func _on_play_pressed():
+	buttonclicked.play()
 	animationplayer.play("PlayerStart")
 	doorani.play("OpenSesame")
 	timer.start()
 
 
 func _on_quit_pressed():
+	buttonclicked.play()
 	animationplayer.play("Player leave")
 	doorani.play("OpenSesame")
 	quittimer.start()
