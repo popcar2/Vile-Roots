@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg3enyjif5ok"]
+[gd_scene load_steps=5 format=3 uid="uid://dg3enyjif5ok"]
 
 [ext_resource type="Texture2D" uid="uid://up3dfbrwvtao" path="res://Art/Bush 3.png" id="1_1c13y"]
 [ext_resource type="Script" path="res://Scripts/bush.gd" id="1_we5xe"]
+[ext_resource type="PackedScene" uid="uid://dufo4qrfbitjs" path="res://Objects/roots.tscn" id="2_wbh2n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7j5l4"]
 radius = 18.0278
@@ -9,8 +10,10 @@ radius = 18.0278
 [node name="Bush3" type="CharacterBody2D" groups=["bush"]]
 script = ExtResource("1_we5xe")
 
+[node name="Roots" parent="." instance=ExtResource("2_wbh2n")]
+
 [node name="Bush3" type="Sprite2D" parent="."]
-modulate = Color(0.733333, 0, 0.462745, 1)
+modulate = Color(0.882353, 0, 0.54902, 1)
 texture = ExtResource("1_1c13y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

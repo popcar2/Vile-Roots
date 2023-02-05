@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var attackCooldownTimer = $"AttackCooldown"
 @onready var iFramesTimer = $"IFrames"
 @onready var collider = $"CollisionShape2D"
+@onready var area2d = $"Area2D"
 
 var slash = preload("res://Objects/slash.tscn")
 
@@ -25,10 +26,11 @@ func _ready():
 func _physics_process(delta):
 	if isDead:
 		return
-
+		
 	move()
 	moveHand()
 	attack()
+	handle_roots()
 	
 	knockbackVector = knockbackVector.move_toward(Vector2(0, 0), delta * 1000)
 	velocity += knockbackVector
@@ -101,6 +103,10 @@ func can_touch_enemies(value):
 	set_collision_layer_value(2, value)
 	set_collision_mask_value(3, value)
 
+func handle_roots():
+	if area2d.get_overlapping_areas():
+		velocity *= 0.25
+
 func set_HP(new_HP):
 	HP = new_HP
 	if HP == 3:
@@ -125,7 +131,7 @@ func set_HP(new_HP):
 func _on_attack_delay_timeout():
 	var mousePos = get_global_mouse_position()
 	var new_slash = slash.instantiate()
-	new_slash.position = position + handSpriteHolder.position
+	new_slash.position = handSprite.global_position
 	new_slash.look_at(mousePos)
 	new_slash.rotation_degrees += 90
 	

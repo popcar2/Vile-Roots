@@ -301,5 +301,10 @@ one_shot = true
 wait_time = 1.5
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_6i2nl")
+
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="IFrames" to="." method="_on_IFrames_timeout"]

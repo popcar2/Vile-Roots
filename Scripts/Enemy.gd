@@ -37,6 +37,7 @@ func _process(delta):
 	
 func take_damage(dmg):
 	health -= dmg
+	play_hit_effect()
 	
 	if health <= 0:
 		if isDead == false:
@@ -50,3 +51,11 @@ func disable_collider():
 
 func _on_disappear_delay_timeout():
 	queue_free()
+
+func play_hit_effect():
+	modulate = Color(1, 0, 0, 1)
+	await get_tree().create_timer(0.15).timeout
+	if !isDead:
+		modulate = Color(1, 1, 1, 1)
+	else:
+		modulate = Color(0.6, 0.6, 0.6, 1)
