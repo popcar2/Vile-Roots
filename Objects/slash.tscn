@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwiypd3i6kj06" path="res://Art/swing.png" id="1_k48gl"]
 [ext_resource type="Script" path="res://Scripts/slash.gd" id="1_v1pib"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kp71c"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5232"]
 radius = 16.0312
 
 [node name="Area2D" type="Area2D"]
@@ -17,7 +17,7 @@ move_speed = -400
 texture = ExtResource("1_k48gl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kp71c")
+shape = SubResource("CircleShape2D_u5232")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
