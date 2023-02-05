@@ -11,7 +11,7 @@ var isDead = false
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	animationPlayer.play("spawn")
-	await get_tree().create_timer(0.5)
+	await get_tree().create_timer(0.3).timeout
 	roots.play = true
 
 func take_damage(dmg):
