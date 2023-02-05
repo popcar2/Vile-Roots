@@ -15,6 +15,8 @@ extends CharacterBody2D
 @onready var iFramesTimer = $"IFrames"
 @onready var collider = $"CollisionShape2D"
 @onready var area2d = $"Area2D"
+@onready var swishSFX = $"swishSFX"
+@onready var ouchSFX = $"ouchSFX"
 
 var slash = preload("res://Objects/slash.tscn")
 
@@ -101,6 +103,13 @@ func handle_enemy_collision(knockback):
 	set_HP(HP - 1)
 	iFramesTimer.start()
 	knockbackVector = knockback * 320
+	ouchSFX.play()
+	
+	for i in range(7):
+		modulate = Color(1, 1, 1, 0)
+		await get_tree().create_timer(0.1).timeout
+		modulate = Color(1, 1, 1, 1)
+		await get_tree().create_timer(0.1).timeout
 
 func can_touch_enemies(value):
 	set_collision_layer_value(2, value)
@@ -139,6 +148,7 @@ func _on_attack_delay_timeout():
 	new_slash.rotation_degrees += 90
 	
 	get_parent().add_sibling(new_slash)
+	swishSFX.play()
 
 
 func _on_IFrames_timeout():
