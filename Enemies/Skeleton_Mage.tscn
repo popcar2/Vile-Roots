@@ -7,90 +7,90 @@
 [ext_resource type="AudioStream" uid="uid://5kx0vx1rvcbo" path="res://Music/swordslash.wav" id="5_wnwu8"]
 [ext_resource type="AudioStream" uid="uid://0irx658k7g2q" path="res://Music/retro_die_01.ogg" id="6_g8nmo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_up7wh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcki2"]
 atlas = ExtResource("1_03n06")
 region = Rect2(0, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_40g46"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwl8x"]
 atlas = ExtResource("1_03n06")
 region = Rect2(64, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_einqq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoy7f"]
 atlas = ExtResource("1_03n06")
 region = Rect2(128, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hxc6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_suo14"]
 atlas = ExtResource("1_03n06")
 region = Rect2(192, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0wvu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f48b"]
 atlas = ExtResource("1_03n06")
 region = Rect2(256, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nd131"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvda3"]
 atlas = ExtResource("1_03n06")
 region = Rect2(320, 6, 64, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gi0v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_imlfg"]
 atlas = ExtResource("2_n14eo")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tycgf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivygl"]
 atlas = ExtResource("2_n14eo")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ua60"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o0j7"]
 atlas = ExtResource("2_n14eo")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_60c8s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_txtlp"]
 atlas = ExtResource("2_n14eo")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_skbuf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3du0r"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(0, 29, 64, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fhfr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8wii"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(64, 29, 64, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c02wt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifmv8"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(128, 29, 64, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1l0v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5srme"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(192, 29, 64, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6ffo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h6m1"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(256, 29, 64, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ov6j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4svjx"]
 atlas = ExtResource("3_ke04e")
 region = Rect2(320, 29, 64, 35)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5b5xf"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxekk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_up7wh")
+"texture": SubResource("AtlasTexture_gcki2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_40g46")
+"texture": SubResource("AtlasTexture_lwl8x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_einqq")
+"texture": SubResource("AtlasTexture_yoy7f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2hxc6")
+"texture": SubResource("AtlasTexture_suo14")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t0wvu")
+"texture": SubResource("AtlasTexture_4f48b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nd131")
+"texture": SubResource("AtlasTexture_mvda3")
 }],
 "loop": false,
 "name": &"Death",
@@ -98,16 +98,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gi0v")
+"texture": SubResource("AtlasTexture_imlfg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tycgf")
+"texture": SubResource("AtlasTexture_ivygl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ua60")
+"texture": SubResource("AtlasTexture_5o0j7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_60c8s")
+"texture": SubResource("AtlasTexture_txtlp")
 }],
 "loop": true,
 "name": &"Idle",
@@ -115,29 +115,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_skbuf")
+"texture": SubResource("AtlasTexture_3du0r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1fhfr")
+"texture": SubResource("AtlasTexture_m8wii")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c02wt")
+"texture": SubResource("AtlasTexture_ifmv8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k1l0v")
+"texture": SubResource("AtlasTexture_5srme")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g6ffo")
+"texture": SubResource("AtlasTexture_7h6m1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ov6j")
+"texture": SubResource("AtlasTexture_4svjx")
 }],
 "loop": true,
 "name": &"Run",
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_840dt"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f11wa"]
 radius = 8.0
 height = 32.0
 
@@ -154,13 +154,13 @@ enemydead = NodePath("AudioStreamPlayer2D2")
 score = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_5b5xf")
+sprite_frames = SubResource("SpriteFrames_nxekk")
 animation = &"Run"
 frame_progress = 0.921161
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_840dt")
+shape = SubResource("CapsuleShape2D_f11wa")
 
 [node name="DisappearDelay" type="Timer" parent="."]
 wait_time = 1.5

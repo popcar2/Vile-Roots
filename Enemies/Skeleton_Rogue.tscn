@@ -7,90 +7,90 @@
 [ext_resource type="AudioStream" uid="uid://5kx0vx1rvcbo" path="res://Music/swordslash.wav" id="5_7nyjq"]
 [ext_resource type="AudioStream" uid="uid://0irx658k7g2q" path="res://Music/retro_die_01.ogg" id="6_hful3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7smh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1s8q"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(0, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y64lp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_su2vf"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(64, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4e0l0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qhd5"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(128, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p633d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xccy2"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(192, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjsur"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mhnw"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(256, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpsya"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1w7"]
 atlas = ExtResource("1_57d6k")
 region = Rect2(320, 25, 64, 39)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjab1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4ba"]
 atlas = ExtResource("2_05ob2")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5cev1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw6an"]
 atlas = ExtResource("2_05ob2")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvctd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4je3h"]
 atlas = ExtResource("2_05ob2")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tqb0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyfnf"]
 atlas = ExtResource("2_05ob2")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_50fc4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcq8n"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(0, 27, 64, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcvu5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpj0n"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(64, 27, 64, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwjax"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6pr5"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(128, 27, 64, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_leo6b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb7cw"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(192, 27, 64, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kds8w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cggpf"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(256, 27, 64, 37)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7daw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_we022"]
 atlas = ExtResource("3_i4yx4")
 region = Rect2(320, 27, 64, 37)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0tfvn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_tebf8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d7smh")
+"texture": SubResource("AtlasTexture_o1s8q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y64lp")
+"texture": SubResource("AtlasTexture_su2vf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4e0l0")
+"texture": SubResource("AtlasTexture_1qhd5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p633d")
+"texture": SubResource("AtlasTexture_xccy2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xjsur")
+"texture": SubResource("AtlasTexture_1mhnw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gpsya")
+"texture": SubResource("AtlasTexture_ja1w7")
 }],
 "loop": false,
 "name": &"Death",
@@ -98,16 +98,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rjab1")
+"texture": SubResource("AtlasTexture_xt4ba")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5cev1")
+"texture": SubResource("AtlasTexture_sw6an")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wvctd")
+"texture": SubResource("AtlasTexture_4je3h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5tqb0")
+"texture": SubResource("AtlasTexture_lyfnf")
 }],
 "loop": true,
 "name": &"Idle",
@@ -115,29 +115,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_50fc4")
+"texture": SubResource("AtlasTexture_bcq8n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bcvu5")
+"texture": SubResource("AtlasTexture_lpj0n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dwjax")
+"texture": SubResource("AtlasTexture_n6pr5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_leo6b")
+"texture": SubResource("AtlasTexture_sb7cw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kds8w")
+"texture": SubResource("AtlasTexture_cggpf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y7daw")
+"texture": SubResource("AtlasTexture_we022")
 }],
 "loop": true,
 "name": &"Run",
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pdgx"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ujq"]
 radius = 8.0
 
 [node name="Skeleton_Rogue" type="CharacterBody2D" node_paths=PackedStringArray("enemyhit", "enemydead") groups=["enemy"]]
@@ -153,13 +153,13 @@ enemydead = NodePath("AudioStreamPlayer2D2")
 score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0tfvn")
+sprite_frames = SubResource("SpriteFrames_tebf8")
 animation = &"Run"
 frame_progress = 0.080883
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_0pdgx")
+shape = SubResource("CapsuleShape2D_71ujq")
 
 [node name="DisappearDelay" type="Timer" parent="."]
 wait_time = 1.5
