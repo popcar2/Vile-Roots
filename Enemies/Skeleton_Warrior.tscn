@@ -146,12 +146,12 @@ collision_layer = 4
 collision_mask = 2
 safe_margin = 0.001
 script = ExtResource("1_sns0s")
-health = 5
+health = 4
 move_speed = 100
 knockbackReceived = 0.5
 enemyhit = NodePath("AudioStreamPlayer2D")
 enemydead = NodePath("AudioStreamPlayer2D2")
-score = 15
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g82qc")

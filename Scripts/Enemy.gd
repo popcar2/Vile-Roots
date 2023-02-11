@@ -35,8 +35,8 @@ func _process(delta):
 		animated_sprite.flip_h = true
 	elif motion.x > 0:
 		animated_sprite.flip_h = false
-	move_and_collide(motion * delta * move_speed)
-
+	
+	var collision = move_and_collide(motion * delta * move_speed)
 	
 func take_damage(dmg):
 	health -= dmg

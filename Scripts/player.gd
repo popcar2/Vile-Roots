@@ -44,10 +44,7 @@ func _physics_process(delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("enemy"):
-			handle_enemy_collision(collision.get_normal())
-			return
-		elif collision.get_collider().is_in_group("boundary"):
+		if collision.get_collider().is_in_group("boundary"):
 			knockbackVector = collision.get_collider_shape().shape.normal * 300
 
 func move():
@@ -99,6 +96,9 @@ func attack():
 			animationPlayer.play("swing_opposite")
 
 func handle_enemy_collision(knockback):
+	if isDead:
+		return
+	
 	can_touch_enemies(false)
 	set_HP(HP - 1)
 	iFramesTimer.start()
@@ -112,8 +112,13 @@ func handle_enemy_collision(knockback):
 		await get_tree().create_timer(0.1).timeout
 
 func can_touch_enemies(value):
+	area2d.set_collision_layer_value(2, value)
+	area2d.set_collision_mask_value(3, value)
 	set_collision_layer_value(2, value)
 	set_collision_mask_value(3, value)
+	
+	var shape: CollisionShape2D = area2d.get_child(0)
+	shape.call_deferred("set_disabled", !value)
 
 func handle_roots():
 	if area2d.get_overlapping_areas():
@@ -148,6 +153,9 @@ func _on_attack_delay_timeout():
 	new_slash.rotation_degrees += 90
 	
 	get_parent().add_sibling(new_slash)
+	
+	var rand_pitch = RandomNumberGenerator.new()
+	swishSFX.set_pitch_scale(rand_pitch.randf_range(0.8, 1.1))
 	swishSFX.play()
 
 func _on_IFrames_timeout():
@@ -169,3 +177,9 @@ func _on_quit_pressed():
 	buttonclicked.play()
 	await get_tree().create_timer(.25).timeout
 	get_tree().quit()
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("enemy"):
+		var collision_normal := Vector2(global_position - body.global_position).normalized()
+		handle_enemy_collision(collision_normal)

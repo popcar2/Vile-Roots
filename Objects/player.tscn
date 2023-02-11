@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://n12l5yl17rtm"]
+[gd_scene load_steps=31 format=3 uid="uid://n12l5yl17rtm"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_h75mc"]
 [ext_resource type="Texture2D" uid="uid://0bxga0jgq5kh" path="res://Art/Knight/Death/Death-Sheet.png" id="2_o4e0s"]
@@ -138,9 +138,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i2nl"]
-radius = 6.0
-height = 26.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nppe0"]
+radius = 4.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_7ngpy"]
 length = 0.001
@@ -259,6 +259,10 @@ _data = {
 "swing_opposite": SubResource("Animation_m1cpb")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i2nl"]
+radius = 6.0
+height = 26.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite", "handSprite", "handSpriteHolder", "animationPlayer")]
 collision_layer = 2
 collision_mask = 5
@@ -276,7 +280,7 @@ frame = 3
 frame_progress = 0.539554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6i2nl")
+shape = SubResource("CapsuleShape2D_nppe0")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -304,13 +308,14 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_6i2nl")
 
 [node name="swishSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6abul")
-volume_db = -15.0
+volume_db = -16.0
 
 [node name="ouchSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_r76ry")
@@ -318,3 +323,4 @@ volume_db = -10.0
 
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="IFrames" to="." method="_on_IFrames_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
