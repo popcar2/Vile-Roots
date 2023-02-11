@@ -112,8 +112,6 @@ func handle_enemy_collision(knockback):
 		await get_tree().create_timer(0.1).timeout
 
 func can_touch_enemies(value):
-	area2d.set_collision_layer_value(2, value)
-	area2d.set_collision_mask_value(3, value)
 	set_collision_layer_value(2, value)
 	set_collision_mask_value(3, value)
 	
