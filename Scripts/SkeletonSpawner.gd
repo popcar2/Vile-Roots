@@ -14,9 +14,9 @@ func _on_spawn_timer_timeout():
 	
 	if spawnTimer.wait_time > 3.4:
 		faster_speed += 0.05
-	elif spawnTimer.wait_time > 2.5:
+	elif spawnTimer.wait_time > 1.5:
 		faster_speed += 0.03
-	else:
+	elif spawnTimer.wait_time > 0.2:
 		faster_speed += 0.01
 	
 	var random = RandomNumberGenerator.new()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dufo4qrfbitjs"]
 
 [ext_resource type="Script" path="res://Scripts/roots.gd" id="1_pm65w"]
-[ext_resource type="Texture2D" uid="uid://cx8rx1q2vawtf" path="res://Art/Roots.png" id="1_tvst5"]
 [ext_resource type="Shader" path="res://Shaders/mask.gdshader" id="2_cyw8r"]
+[ext_resource type="Texture2D" uid="uid://cg670d6il6uj3" path="res://Art/Roots 2.png" id="2_oth0c"]
 [ext_resource type="Texture2D" uid="uid://dx1vigbhwnpye" path="res://Shaders/final_mask.png" id="3_aukx4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_syjmf"]
@@ -10,7 +10,7 @@ shader = ExtResource("2_cyw8r")
 shader_parameter/invert_mask = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1ho1"]
-radius = 61.9195
+radius = 60.0521
 
 [node name="Roots" type="Node2D"]
 z_index = -1
@@ -19,133 +19,17 @@ script = ExtResource("1_pm65w")
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 
 [node name="Root Sprites" type="Node2D" parent="BackBufferCopy"]
-modulate = Color(0.439216, 0, 0.0823529, 1)
+modulate = Color(0.694118, 0, 0.156863, 1)
 
 [node name="RootsSprite" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
 rotation = 3.14159
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite2" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(0, -32)
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite3" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(32, -32)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite4" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(32, 0)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite5" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(32, 32)
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite6" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(0, 32)
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite7" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-32, 32)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite8" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-32, 0)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite9" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-32, -32)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite10" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(0, -64)
-rotation = -3.14159
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite11" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(32, -64)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite12" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-32, -64)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite13" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(0, 64)
-rotation = -3.14159
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite14" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(32, 64)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite15" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-32, 64)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite16" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-64, 32)
-rotation = 3.14159
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite17" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-64, 0)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite18" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-64, -32)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite19" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(64, 32)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite20" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(64, 0)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite21" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(64, -32)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite22" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-64, 64)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite23" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(64, 64)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite24" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(-64, -64)
-rotation = -1.5708
-texture = ExtResource("1_tvst5")
-
-[node name="RootsSprite25" type="Sprite2D" parent="BackBufferCopy/Root Sprites"]
-position = Vector2(64, -64)
-rotation = 1.5708
-texture = ExtResource("1_tvst5")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_oth0c")
 
 [node name="CircleMask" type="Sprite2D" parent="BackBufferCopy"]
 material = SubResource("ShaderMaterial_syjmf")
 position = Vector2(0, 2)
-scale = Vector2(0.323, 0.323)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_aukx4")
 
 [node name="Area2D" type="Area2D" parent="BackBufferCopy/CircleMask"]

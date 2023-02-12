@@ -7,8 +7,6 @@ extends CharacterBody2D
 @export var handSpriteHolder: Node2D
 @export var GUI: Control
 @export var animationPlayer: AnimationPlayer
-@export var retry: CanvasLayer
-@export var buttonclicked: AudioStreamPlayer2D
 
 @onready var attackDelayTimer = $"AttackDelay"
 @onready var attackCooldownTimer = $"AttackCooldown"
@@ -18,6 +16,8 @@ extends CharacterBody2D
 @onready var swishSFX = $"swishSFX"
 @onready var ouchSFX = $"ouchSFX"
 
+signal player_dead
+
 var slash = preload("res://Objects/slash.tscn")
 
 var hearts = [] # Holds each heart variable
@@ -25,7 +25,6 @@ var knockbackVector = Vector2(0, 0)
 var isDead = false
 
 func _ready():
-	retry.hide()
 	hearts = GUI.get_child(1).get_children()
 
 func _physics_process(delta):
@@ -160,22 +159,8 @@ func _on_IFrames_timeout():
 	can_touch_enemies(true)
 
 func die():
+	player_dead.emit()
 	animatedSprite.play("Death")
-	await get_tree().create_timer(1).timeout
-	retry.show()
-
-
-func _on_retry_pressed():
-	buttonclicked.play()
-	await get_tree().create_timer(.25).timeout
-	get_tree().reload_current_scene()
-
-
-func _on_quit_pressed():
-	buttonclicked.play()
-	await get_tree().create_timer(.25).timeout
-	get_tree().quit()
-
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy"):
