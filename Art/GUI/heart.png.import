@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/heart.png-ed92bc9e52eca60b5fdf5fa3b37a4f3f.ct
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
