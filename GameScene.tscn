@@ -472,7 +472,6 @@ text = "Quit"
 
 [node name="PauseCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="PauseMenu" type="Control" parent="PauseCanvas"]
 layout_mode = 3
@@ -523,6 +522,97 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Unpause"
 
+[node name="Settings" type="Button" parent="PauseCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="SettingsCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseMenu" type="Control" parent="SettingsCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -0.0679932
+offset_bottom = 0.0679932
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_pb3td")
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsCanvas/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsCanvas/PauseMenu/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Paused" type="Label" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sound "
+
+[node name="HSlider" type="HSlider" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Music  "
+
+[node name="HSlider" type="HSlider" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="Settings Back" type="Button" parent="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back"
+
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_btw66")
 volume_db = -10.0
@@ -531,6 +621,7 @@ bus = &"Music"
 script = ExtResource("14_75dqf")
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 position = Vector2(336, 212)
 stream = ExtResource("11_2wyjl")
 volume_db = -5.0
@@ -542,4 +633,8 @@ bus = &"SFX"
 [connection signal="pressed" from="RetryCanvas/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Retry?" to="MainCanvas" method="_on_retry_pressed"]
 [connection signal="pressed" from="RetryCanvas/RetryMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="MainCanvas" method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Unpause" to="MainCanvas" method="_on_unpause_pressed"]
+[connection signal="pressed" from="PauseCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="MainCanvas" method="_on_settings_pressed"]
+[connection signal="value_changed" from="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="MainCanvas" method="_on_SFX_slider_value_changed"]
+[connection signal="value_changed" from="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="MainCanvas" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="SettingsCanvas/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Settings Back" to="MainCanvas" method="_on_settings_back_pressed"]
 [connection signal="finished" from="BGM" to="BGM" method="_on_finished"]
