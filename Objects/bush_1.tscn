@@ -96,5 +96,6 @@ libraries = {
 stream = ExtResource("4_df3fy")
 volume_db = -20.0
 pitch_scale = 0.75
+bus = &"SFX"
 
 [connection signal="timeout" from="DisappearDelay" to="." method="_on_disappear_delay_timeout"]

@@ -6,6 +6,11 @@ extends CanvasLayer
 @export var timer: Timer
 @export var quittimer: Timer
 @export var buttonclicked: AudioStreamPlayer2D
+@export var settings_menu: CanvasLayer
+
+func _ready():
+	visible = true
+	settings_menu.visible = false
 
 func _on_play_pressed():
 	buttonclicked.play()
@@ -26,3 +31,22 @@ func _on_play_delay_timeout():
 
 func _on_quit_delay_timeout():
 	get_tree().quit()
+
+
+func _on_settings_back_pressed():
+	buttonclicked.play()
+	visible = true
+	settings_menu.visible = false
+
+func _on_settings_pressed():
+	buttonclicked.play()
+	visible = false
+	settings_menu.visible = true
+
+
+func _on_music_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+
+
+func _on_SFX_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))

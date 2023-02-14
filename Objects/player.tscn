@@ -276,8 +276,8 @@ animationPlayer = NodePath("Node2D/AnimationPlayer")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_scugl")
 animation = &"Idle"
-frame = 3
-frame_progress = 0.539554
+frame = 2
+frame_progress = 0.214034
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nppe0")
@@ -316,10 +316,12 @@ shape = SubResource("CapsuleShape2D_6i2nl")
 [node name="swishSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6abul")
 volume_db = -16.0
+bus = &"SFX"
 
 [node name="ouchSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_r76ry")
 volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="IFrames" to="." method="_on_IFrames_timeout"]

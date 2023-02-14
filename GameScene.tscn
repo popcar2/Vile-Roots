@@ -527,11 +527,14 @@ text = "Unpause"
 stream = ExtResource("12_btw66")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 script = ExtResource("14_75dqf")
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(336, 212)
 stream = ExtResource("11_2wyjl")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="player_dead" from="Player" to="MainCanvas" method="_on_player_dead"]
 [connection signal="timeout" from="BushSpawner/SpawnTimer" to="BushSpawner" method="_on_spawn_timer_timeout"]
